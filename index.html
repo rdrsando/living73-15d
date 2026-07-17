@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living73 15D - Welcome Book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Merriweather', serif;
+            --bg-primary: #f9f9f8;
+            --bg-white: #ffffff;
+            --text-primary: #1c1917;
+            --text-secondary: #57534d;
+            --text-muted: #a6a09b;
+            --accent: #292524;
+            --accent-light: #e7e5e4;
+            --border: #e7e5e4;
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(249, 249, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav a {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        .nav a:hover {
+            background: var(--accent-light);
+            color: var(--text-primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 0 24px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        /* Contact Cards */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 28px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .contact-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 10px 16px;
+            background: var(--accent-light);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        .contact-card a:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* How To Section */
+        .howto-list {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .howto-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .howto-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .howto-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .howto-video {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .howto-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .howto-content h3 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .howto-content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Downloads */
+        .downloads-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .download-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-white);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .download-item:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .download-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .download-item:hover .download-icon {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .download-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .download-info {
+            flex: 1;
+        }
+
+        .download-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .download-info p {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* Map Section */
+        .map-container {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .map-text {
+            padding: 32px 32px 24px;
+        }
+
+        .map-text h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .map-text p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .map-text {
+                padding: 24px;
+            }
+
+            .map-iframe {
+                height: 350px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--accent);
+            color: white;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer h2 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            font-size: 15px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 16px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .howto-item {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 24px;
+            }
+
+            .howto-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .contacts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .contact-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Living73 15D</a>
+            <nav class="nav" id="nav">
+                <a href="#contactos">Contactos</a>
+                <a href="#como-usar">Cómo Usar</a>
+                <a href="#lugares">Lugares</a>
+                <a href="#descargas">Descargas</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="videos/video_header.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Bienvenidos a Living73 15D</h1>
+            <p>Tu hogar lejos de casa. Aquí encontrarás todo lo que necesitas para que tu estancia sea perfecta.</p>
+        </div>
+    </section>
+
+    <!-- Contactos de Emergencia -->
+    <section class="section" id="contactos">
+        <h2 class="section-title">Contactos de Emergencia</h2>
+        <p class="section-subtitle">Guarda estos números. Esperamos no necesitarlos, pero es bueno tenerlos a mano.</p>
+        
+        <div class="contacts-grid">
+            <!-- Bomberos -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+                    </svg>
+                </div>
+                <h3>Bomberos</h3>
+                <p>Emergencias con incendios, gases o rescates. Línea directa: 103.</p>
+                <a href="tel:+5075126148">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                    512-6148 / 512-6400
+                </a>
+            </div>
+
+            <!-- Policía -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                    </svg>
+                </div>
+                <h3>Policía Nacional</h3>
+                <p>Emergencias policiales o reportes. Línea directa: 104.</p>
+                <a href="tel:+5075117000">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                    511-7000 / 104
+                </a>
+            </div>
+
+            <!-- Emergencias -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                    </svg>
+                </div>
+                <h3>Emergencias 911</h3>
+                <p>Emergencias generales, ambulancia, policía.</p>
+                <a href="tel:911">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                    911
+                </a>
+            </div>
+
+            <!-- Atención Ciudadana -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                    </svg>
+                </div>
+                <h3>Atención Ciudadana</h3>
+                <p>Servicios públicos, alcaldía, reclamos.</p>
+                <a href="tel:311">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                    311
+                </a>
+            </div>
+
+            <!-- Ambulancia Privada -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                    </svg>
+                </div>
+                <h3>Ambulancia Privada</h3>
+                <p>7am a 11pm: <strong>374-0000</strong><br>11pm a 7am: <strong>6259-8406</strong></p>
+                <a href="tel:+5073740000">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                    374-0000
+                </a>
+            </div>
+
+            <!-- Anfitrión -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                </div>
+                <h3>Tu Anfitrión</h3>
+                <p>¿Dudas o necesitas algo? Escríbeme.</p>
+                <a href="https://wa.me/34XXXXXXXXX">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Usar -->
+    <section class="section" id="como-usar">
+        <h2 class="section-title">Cómo Usar</h2>
+        <p class="section-subtitle">Aquí tienes guías rápidas para sacar el máximo partido a las instalaciones.</p>
+        
+        <div class="howto-list">
+            <!-- Lavadora -->
+            <div class="howto-item">
+                <div class="howto-video">
+                    <video controls preload="metadata">
+                        <source src="videos/lavadora.mp4" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+                </div>
+                <div class="howto-content">
+                    <h3>Lavadora</h3>
+                    <p>
+                        La lavadora está ubicada en el baño. Para usarla, carga la ropa y selecciona el programa adecuado. 
+                        El detergente y suavizante están en el armario de encima. Recuerda no sobrecargar el tambor 
+                        y revisar los bolsillos antes de lavar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Secadora -->
+            <div class="howto-item">
+                <div class="howto-video">
+                    <video controls preload="metadata">
+                        <source src="videos/secadora.mp4" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+                </div>
+                <div class="howto-content">
+                    <h3>Secadora</h3>
+                    <p>
+                        La secadora está junto a la lavadora. Selecciona el nivel de sequedad deseado. 
+                        Recuerda limpiar el filtro de pelusas después de cada uso para mantener un buen rendimiento.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Plancha -->
+            <div class="howto-item">
+                <div class="howto-video">
+                    <video controls preload="metadata">
+                        <source src="videos/plancha.mp4" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+                </div>
+                <div class="howto-content">
+                    <h3>Plancha</h3>
+                    <p>
+                        La plancha y la tabla de planchar están en el armario del dormitorio principal. 
+                        Ajusta la temperatura según el tipo de tela. Nevera para delicados, punto medio para algodón, 
+                        maximum para lino.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Aire Acondicionado -->
+            <div class="howto-item">
+                <div class="howto-video">
+                    <video controls preload="metadata">
+                        <source src="videos/aire-acondicionado.mp4" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+                </div>
+                <div class="howto-content">
+                    <h3>Aire Acondicionado</h3>
+                    <p>
+                        El control remoto se encuentra sobre la mesa del salón. Al encender el aire acondicionado, 
+                        la pantalla LED de la consola mostrará la temperatura actual de la habitación. 
+                        En la pantalla del control remoto verás la temperatura a la que está configurado el equipo. 
+                        A medida que el aire enfríe, podrás observar en la consola cómo la temperatura desciende 
+                        hasta alcanzar la configurada. Te recomendamos mantenerlo entre 22-24°C para un confort óptimo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Aspiradora -->
+            <div class="howto-item">
+                <div class="howto-video">
+                    <video controls preload="metadata">
+                        <source src="videos/aspiradora.mp4" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+                </div>
+                <div class="howto-content">
+                    <h3>Aspiradora</h3>
+                    <p>
+                        La aspiradora se encuentra en el closet de lavado, ubicado en el área de cocina. 
+                        Abre las puertas del closet y retírala para su uso. Te recomendamos ver el video 
+                        antes de usarla para familiarizarte con su funcionamiento. Para sesiones de limpieza 
+                        más prolongadas, ajusta la velocidad a "MID" para un mejor rendimiento y mayor duración de batería.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="lugares">
+        <h2 class="section-title">Lugares de Interés</h2>
+        <p class="section-subtitle">Explora los alrededores. Aquí tienes un mapa con los mejores sitios para visitar.</p>
+        
+        <div class="map-container">
+            <div class="map-text">
+                <h3>¿Qué encontrará por la zona?</h3>
+                <p>
+                    En los alrededores de Living73 15D podrás encontrar de todo: farmacias, restaurantes con excelente comida local, 
+                    automercados y tiendas de abarrote para tus compras del día a día, parques para caminar y hacer ejercicio, 
+                    y mucho más. Usa el mapa para descubrir todo lo que la zona tiene para ofrecerte.
+                </p>
+            </div>
+            <iframe 
+                class="map-iframe" 
+                src="https://www.google.com/maps/d/embed?mid=1iYpAGl-rtoYjVcmq5AgWTXeOHDK4WhY&ehbc=2E312F" 
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Descargas -->
+    <section class="section" id="descargas">
+        <h2 class="section-title">Manuales y Descargas</h2>
+        <p class="section-subtitle">Documentos útiles que puedes descargar para consultar cuando necesites.</p>
+        
+        <div class="downloads-list">
+            <a href="https://www.scribd.com/document/788896690/Dc68-04269h-02-Ib-U-pjt-Combo-md-Simpleux-Mes" class="download-item" target="_blank" rel="noopener noreferrer">
+                <div class="download-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                </div>
+                <div class="download-info">
+                    <h4>Manual de la Lavadora</h4>
+                    <p>PDF · Instrucciones completas de uso</p>
+                </div>
+            </a>
+
+            <a href="pdf/manual-aire.pdf" class="download-item" download>
+                <div class="download-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                </div>
+                <div class="download-info">
+                    <h4>Manual del Aire Acondicionado</h4>
+                    <p>PDF · Configuración y mantenimiento</p>
+                </div>
+            </a>
+
+            <a href="pdf/reglas-casa.pdf" class="download-item" download>
+                <div class="download-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                </div>
+                <div class="download-info">
+                    <h4>Reglas de la Casa</h4>
+                    <p>PDF · Normas y consejos del alojamiento</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>¿Necesitas algo más?</h2>
+            <p>
+                No dudes en escribirme por WhatsApp si tienes cualquier duda o necesitas ayuda con algo. 
+                ¡Espero que disfrutes de tu estancia en Living73 15D!
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        // Header background on scroll
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(249, 249, 248, 0.98)';
+            } else {
+                header.style.background = 'rgba(249, 249, 248, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
