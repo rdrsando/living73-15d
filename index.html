@@ -397,6 +397,63 @@
             display: block;
         }
 
+        /* Rules Section */
+        .rules-container {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 32px;
+        }
+
+        .rules-subsection {
+            margin-bottom: 28px;
+        }
+
+        .rules-subsection:last-child {
+            margin-bottom: 0;
+        }
+
+        .rules-subsection h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .rules-list li:not(:last-child) {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rules-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .rules-container {
+                padding: 24px;
+            }
+        }
+
         @media (max-width: 768px) {
             .map-text {
                 padding: 24px;
@@ -506,6 +563,7 @@
         <div class="header-content">
             <a href="#" class="logo">Living73 15D</a>
             <nav class="nav" id="nav">
+                <a href="#reglas">Reglas</a>
                 <a href="#contactos">Contactos</a>
                 <a href="#como-usar">Cómo Usar</a>
                 <a href="#lugares">Lugares</a>
@@ -528,6 +586,62 @@
         <div class="hero-content">
             <h1>Bienvenidos a Living73 15D</h1>
             <p>Tu hogar lejos de casa. Aquí encontrarás todo lo que necesitas para que tu estancia sea perfecta.</p>
+        </div>
+    </section>
+
+    <!-- Reglas de Uso de la Casa -->
+    <section class="section" id="reglas">
+        <h2 class="section-title">Reglas de Uso de la Casa</h2>
+        <p class="section-subtitle">Por favor, lee y respeta estas normas para que todos disfruten de la estadía.</p>
+        
+        <div class="rules-container">
+            <div class="rules-subsection">
+                <h3>Normas de Convivencia</h3>
+                <ul class="rules-list">
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                        </svg>
+                        Prohibido hacer fiestas o reuniones que molesten a los vecinos.
+                    </li>
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Horas de silencio: de 10:00 PM a 8:00 AM.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="rules-subsection">
+                <h3>Uso y Cuidado de la Propiedad</h3>
+                <ul class="rules-list">
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                        </svg>
+                        No se permite fumar dentro de la unidad.
+                    </li>
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v6" />
+                        </svg>
+                        Apague los aires acondicionados al salir de la unidad.
+                    </li>
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                        </svg>
+                        Extienda las toallas mojadas en el tendedero de la terraza.
+                    </li>
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                        </svg>
+                        No se aceptan mascotas.
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
