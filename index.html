@@ -185,6 +185,58 @@
             max-width: 600px;
         }
 
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item:nth-child(1).visible { transition-delay: 0.1s; }
+        .stagger-item:nth-child(2).visible { transition-delay: 0.2s; }
+        .stagger-item:nth-child(3).visible { transition-delay: 0.3s; }
+        .stagger-item:nth-child(4).visible { transition-delay: 0.4s; }
+        .stagger-item:nth-child(5).visible { transition-delay: 0.5s; }
+        .stagger-item:nth-child(6).visible { transition-delay: 0.6s; }
+
         /* Contact Cards */
         .contacts-grid {
             display: grid;
@@ -590,12 +642,12 @@
     </section>
 
     <!-- Reglas de Uso de la Unidad -->
-    <section class="section" id="reglas">
+    <section class="section fade-in" id="reglas">
         <h2 class="section-title">Reglas de Uso de la Unidad</h2>
         <p class="section-subtitle">Por favor, lee y respeta estas normas para que todos disfruten de la estadía.</p>
         
         <div class="rules-container">
-            <div class="rules-subsection">
+            <div class="rules-subsection fade-in">
                 <h3>Normas de Convivencia</h3>
                 <ul class="rules-list">
                     <li>
@@ -613,7 +665,7 @@
                 </ul>
             </div>
 
-            <div class="rules-subsection">
+            <div class="rules-subsection fade-in">
                 <h3>Uso y Cuidado de la Propiedad</h3>
                 <ul class="rules-list">
                     <li>
@@ -655,7 +707,7 @@
                 </ul>
             </div>
 
-            <div class="rules-subsection">
+            <div class="rules-subsection fade-in">
                 <h3>Logística de Desechos y Seguridad</h3>
                 <ul class="rules-list">
                     <li>
@@ -676,13 +728,13 @@
     </section>
 
     <!-- Cómo Usar -->
-    <section class="section" id="como-usar">
+    <section class="section fade-in" id="como-usar">
         <h2 class="section-title">Cómo Usar</h2>
         <p class="section-subtitle">Aquí tienes guías rápidas para sacar el máximo partido a las instalaciones.</p>
         
         <div class="howto-list">
             <!-- Aire Acondicionado -->
-            <div class="howto-item">
+            <div class="howto-item fade-in-left">
                 <div class="howto-video">
                     <video controls preload="metadata">
                         <source src="videos/aire_acond.mp4" type="video/mp4">
@@ -702,7 +754,7 @@
             </div>
 
             <!-- Secadora -->
-            <div class="howto-item">
+            <div class="howto-item fade-in-right">
                 <div class="howto-video">
                     <video controls preload="metadata">
                         <source src="videos/secadora.mp4" type="video/mp4">
@@ -719,7 +771,7 @@
             </div>
 
             <!-- Plancha -->
-            <div class="howto-item">
+            <div class="howto-item fade-in-left">
                 <div class="howto-video">
                     <video controls preload="metadata">
                         <source src="videos/plancha.mp4" type="video/mp4">
@@ -737,7 +789,7 @@
             </div>
 
             <!-- Lavadora -->
-            <div class="howto-item">
+            <div class="howto-item fade-in-right">
                 <div class="howto-video">
                     <video controls preload="metadata">
                         <source src="videos/lavadora.mp4" type="video/mp4">
@@ -759,7 +811,7 @@
             </div>
 
             <!-- Aspiradora -->
-            <div class="howto-item">
+            <div class="howto-item fade-in-left">
                 <div class="howto-video">
                     <video controls preload="metadata">
                         <source src="videos/aspiradora.mp4" type="video/mp4">
@@ -780,12 +832,12 @@
     </section>
 
     <!-- Descargas -->
-    <section class="section" id="descargas">
+    <section class="section fade-in" id="descargas">
         <h2 class="section-title">Manuales y Descargas</h2>
         <p class="section-subtitle">Documentos útiles que puedes descargar para consultar cuando necesites.</p>
         
         <div class="downloads-list">
-            <a href="https://www.scribd.com/document/788896690/Dc68-04269h-02-Ib-U-pjt-Combo-md-Simpleux-Mes" class="download-item" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.scribd.com/document/788896690/Dc68-04269h-02-Ib-U-pjt-Combo-md-Simpleux-Mes" class="download-item stagger-item" target="_blank" rel="noopener noreferrer">
                 <div class="download-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -797,7 +849,7 @@
                 </div>
             </a>
 
-            <a href="https://share.google/HatVjAZnXR4O1R2LD" class="download-item" target="_blank" rel="noopener noreferrer">
+            <a href="https://share.google/HatVjAZnXR4O1R2LD" class="download-item stagger-item" target="_blank" rel="noopener noreferrer">
                 <div class="download-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -811,11 +863,11 @@
         </div>
     </section>
 
-    <section class="section" id="sitios">
+    <section class="section fade-in" id="sitios">
         <h2 class="section-title">Sitios de Interés</h2>
         <p class="section-subtitle">Explora los alrededores. Aquí tienes un mapa con los mejores sitios para visitar.</p>
         
-        <div class="map-container">
+        <div class="map-container fade-in">
             <div class="map-text">
                 <h3>¿Qué encontrará por la zona?</h3>
                 <p>
@@ -835,13 +887,13 @@
     </section>
 
     <!-- Contactos de Emergencia -->
-    <section class="section" id="contactos">
+    <section class="section fade-in" id="contactos">
         <h2 class="section-title">Contactos de Emergencia</h2>
         <p class="section-subtitle">Guarda estos números. Esperamos no necesitarlos, pero es bueno tenerlos a mano.</p>
         
         <div class="contacts-grid">
             <!-- Bomberos -->
-            <div class="contact-card">
+            <div class="contact-card stagger-item">
                 <div class="contact-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
@@ -859,7 +911,7 @@
             </div>
 
             <!-- Policía -->
-            <div class="contact-card">
+            <div class="contact-card stagger-item">
                 <div class="contact-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -876,7 +928,7 @@
             </div>
 
             <!-- Emergencias -->
-            <div class="contact-card">
+            <div class="contact-card stagger-item">
                 <div class="contact-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -893,7 +945,7 @@
             </div>
 
             <!-- Atención Ciudadana -->
-            <div class="contact-card">
+            <div class="contact-card stagger-item">
                 <div class="contact-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
@@ -910,7 +962,7 @@
             </div>
 
             <!-- Ambulancia Privada -->
-            <div class="contact-card">
+            <div class="contact-card stagger-item">
                 <div class="contact-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
@@ -927,7 +979,7 @@
             </div>
 
             <!-- Anfitrión -->
-            <div class="contact-card">
+            <div class="contact-card stagger-item">
                 <div class="contact-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -946,7 +998,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer fade-in">
         <div class="footer-content">
             <h2>¿Necesitas algo más?</h2>
             <p>
@@ -980,6 +1032,25 @@
             } else {
                 header.style.background = 'rgba(244, 245, 247, 0.95)';
             }
+        });
+
+        // Scroll animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .stagger-item').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
