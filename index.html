@@ -92,6 +92,40 @@
             color: var(--text-primary);
         }
 
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px;
+            margin-left: 12px;
+        }
+
+        .lang-btn {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: transparent;
+            color: var(--text-muted);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--text-primary);
+        }
+
         .menu-toggle {
             display: none;
             background: none;
@@ -569,6 +603,10 @@
                 <a href="#sitios">Sitios</a>
                 <a href="#contactos">Contactos</a>
             </nav>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Menú">
                 <span></span>
                 <span></span>
@@ -1018,6 +1056,281 @@
             } else {
                 header.style.background = 'rgba(244, 245, 247, 0.95)';
             }
+        });
+
+        // Language toggle functionality
+        const translations = {
+            es: {
+                // Navigation
+                navReglas: 'Reglas',
+                navComoUsar: 'Cómo Usar',
+                navDescargas: 'Descargas',
+                navSitios: 'Sitios',
+                navContactos: 'Contactos',
+                
+                // Hero
+                heroTitle: 'Bienvenidos a Living73 15D',
+                heroSubtitle: 'Tu hogar lejos de casa. Aquí encontrarás todo lo que necesitas para que tu estancia sea perfecta.',
+                
+                // Rules Section
+                reglasTitle: 'Reglas de Uso de la Unidad',
+                reglasSubtitle: 'Por favor, lee y respeta estas normas para que todos disfruten de la estadía.',
+                reglasSub1: 'Normas de Convivencia',
+                reglasSub2: 'Uso y Cuidado de la Propiedad',
+                reglasSub3: 'Logística de Desechos y Seguridad',
+                regla1: 'Prohibido hacer fiestas o reuniones que molesten a los vecinos.',
+                regla2: 'Horas de silencio: de 10:00 PM a 8:00 AM.',
+                regla3: 'No se permite fumar dentro de la unidad.',
+                regla4: 'Apague los aires acondicionados al salir de la unidad.',
+                regla5: 'Extienda las toallas mojadas en el tendedero de la terraza.',
+                regla6: 'No se siente mojado sobre la cama, sofá o sillas de la unidad.',
+                regla7: 'Evite dejar restos de comida sobre la encimera. Mantenga el orden y la limpieza.',
+                regla8: 'No se aceptan mascotas.',
+                regla9: 'Deposite los desechos en bolsas dentro de los contenedores del PH, ubicados en el cuarto de basura del nivel PB.',
+                regla10: 'La pérdida del ping o token de acceso a las áreas comunes conlleva una multa de $50 para cubrir el reemplazo.',
+                
+                // How To Section
+                comoUsarTitle: 'Cómo Usar',
+                comoUsarSubtitle: 'Aquí tienes guías rápidas para sacar el máximo partido a las instalaciones.',
+                comoUsarAC: 'Aire Acondicionado',
+                comoUsarACDesc: 'El control remoto se encuentra sobre la mesa del salón. Al encender el aire acondicionado, la pantalla LED de la consola mostrará la temperatura actual de la habitación. En la pantalla del control remoto verás la temperatura a la que está configurado el equipo. A medida que el aire enfríe, podrás observar en la consola cómo la temperatura desciende hasta alcanzar la configurada. Te recomendamos mantenerlo entre 22-24°C para un confort óptimo.',
+                comoUsarPlancha: 'Plancha',
+                comoUsarPlanchaDesc: 'La plancha y la tabla de planchar están en el armario del dormitorio principal. Para usarla, llévela a la barra de la cocina y coloque la tabla sobre ella. Evite planchar sobre la cama o superficies que puedan dañarse con el calor. Al terminar, deje enfriar la plancha antes de guardarla en su lugar.',
+                comoUsarLavadora: 'Lavadora',
+                comoUsarLavadoraDesc: 'La lavadora se encuentra en el closet de lavado, ubicado en el área de cocina. Abra las puertas del closet y la de la lavadora para introducir la ropa, luego abra el compartimento superior para verter el detergente líquido. A continuación, presione el botón de encendido y gire la perilla central para seleccionar el ciclo de lavado deseado. Finalmente, presione el botón de inicio para que la máquina comience a funcionar. No abra la puerta hasta que finalice el ciclo. El final del lavado se anuncia con una melodía.',
+                comoUsarSecadora: 'Secadora',
+                comoUsarSecadoraDesc: 'La lavadora cuenta con un modo de secado. Para usarlo, coloque solo las prendas que desea secar, cierre la puerta y seleccione el ciclo de secado adecuado según el tipo de tela. Luego presione el botón de inicio. Tenga en cuenta que el tiempo de secado en este equipo es considerablemente más largo que el de una secadora convencional, ya que se trata de una lavadora con función de secado y no de una secadora independiente.',
+                comoUsarTendedero: 'Secar Toallas y Ropa',
+                comoUsarTendederoDesc: 'Para secar toallas y ropa dispone de un tendedero en la terraza. Despliéguelo y cuelgue las prendas para que se sequen al aire.',
+                comoUsarAspiradora: 'Aspiradora',
+                comoUsarAspiradoraDesc: 'La aspiradora se encuentra en el closet de lavado, ubicado en el área de cocina. Abre las puertas del closet y retírala para su uso. Te recomendamos ver el video antes de usarla para familiarizarte con su funcionamiento. Para sesiones de limpieza más prolongadas, ajusta la velocidad a "MID" para un mejor rendimiento y mayor duración de batería.',
+                comoUsarBasura: 'Basura',
+                comoUsarBasuraDesc: 'La basura debe colocarse en bolsas bien cerradas y depositarse en el cuarto de basura ubicado en el nivel PB (planta baja). Por favor, no deje bolsas fuera del contenedor.',
+                
+                // Downloads Section
+                descargasTitle: 'Manuales y Descargas',
+                descargasSubtitle: 'Documentos útiles que puedes descargar para consultar cuando necesites.',
+                descargasLavadora: 'Manual de la Lavadora',
+                descargasLavadoraDesc: 'PDF · Instrucciones completas de uso',
+                descargasAspiradora: 'Manual de la Aspiradora',
+                descargasAspiradoraDesc: 'PDF · Instrucciones de uso y mantenimiento',
+                
+                // Sites Section
+                sitiosTitle: 'Sitios de Interés',
+                sitiosSubtitle: 'Explora los alrededores. Aquí tienes un mapa con los mejores sitios para visitar.',
+                sitiosQuestion: '¿Qué encontrará por la zona?',
+                sitiosDesc: 'En los alrededores de Living73 15D podrás encontrar de todo: farmacias, restaurantes con excelente comida local, automercados y tiendas de abarrote para tus compras del día a día, parques para caminar y hacer ejercicio, y mucho más. Usa el mapa para descubrir todo lo que la zona tiene para ofrecerte.',
+                
+                // Contacts Section
+                contactosTitle: 'Contactos de Emergencia',
+                contactosSubtitle: 'Guarda estos números. Esperamos no necesitarlos, pero es bueno tenerlos a mano.',
+                contactosBomberos: 'Bomberos',
+                contactosBomberosDesc: 'Emergencias con incendios, gases o rescates. Línea directa: 103.',
+                contactosPolicia: 'Policía Nacional',
+                contactosPoliciaDesc: 'Emergencias policiales o reportes. Línea directa: 104.',
+                contactos911: 'Emergencias 911',
+                contactos911Desc: 'Emergencias generales, ambulancia, policía.',
+                contactosCiudadana: 'Atención Ciudadana',
+                contactosCiudadanaDesc: 'Servicios públicos, alcaldía, reclamos.',
+                contactosAmbulancia: 'Ambulancia Privada',
+                contactosAmbulanciaDesc: '7am a 11pm: <strong>374-0000</strong><br>11pm a 7am: <strong>6259-8406</strong>',
+                contactosAnfitrion: 'Tu Anfitrión',
+                contactosAnfitrionDesc: '¿Dudas o necesitas algo? Escríbeme.',
+                
+                // Footer
+                footerTitle: '¿Necesitas algo más?',
+                footerDesc: 'No dudes en escribirme por WhatsApp si tienes cualquier duda o necesitas ayuda con algo. ¡Espero que disfrutes de tu estancia en Living73 15D!'
+            },
+            en: {
+                // Navigation
+                navReglas: 'Rules',
+                navComoUsar: 'How to Use',
+                navDescargas: 'Downloads',
+                navSitios: 'Sites',
+                navContactos: 'Contacts',
+                
+                // Hero
+                heroTitle: 'Welcome to Living73 15D',
+                heroSubtitle: 'Your home away from home. Here you will find everything you need for a perfect stay.',
+                
+                // Rules Section
+                reglasTitle: 'Unit Rules',
+                reglasSubtitle: 'Please read and respect these rules so everyone can enjoy their stay.',
+                reglasSub1: 'House Rules',
+                reglasSub2: 'Property Use and Care',
+                reglasSub3: 'Waste Management and Safety',
+                regla1: 'Parties or gatherings that disturb neighbors are prohibited.',
+                regla2: 'Quiet hours: from 10:00 PM to 8:00 AM.',
+                regla3: 'Smoking is not allowed inside the unit.',
+                regla4: 'Turn off air conditioning units when leaving the unit.',
+                regla5: 'Hang wet towels on the balcony drying rack.',
+                regla6: 'Do not sit wet on the bed, sofa, or chairs.',
+                regla7: 'Avoid leaving food scraps on the counter. Keep the space clean and tidy.',
+                regla8: 'No pets allowed.',
+                regla9: 'Place waste in bags inside the building containers, located in the trash room on the ground floor (PB).',
+                regla10: 'Loss of the access ping or token to common areas incurs a $50 fine to cover replacement.',
+                
+                // How To Section
+                comoUsarTitle: 'How to Use',
+                comoUsarSubtitle: 'Quick guides to help you make the most of the facilities.',
+                comoUsarAC: 'Air Conditioning',
+                comoUsarACDesc: 'The remote control is on the living room table. When you turn on the AC, the console LED screen will show the current room temperature. The remote control screen displays the set temperature. As the air cools, you can watch the console temperature drop to the desired level. We recommend keeping it between 22-24°C for optimal comfort.',
+                comoUsarPlancha: 'Iron',
+                comoUsarPlanchaDesc: 'The iron and ironing board are in the main bedroom closet. To use them, bring the iron to the kitchen counter and place the board on it. Avoid ironing on the bed or surfaces that could be damaged by heat. When finished, let the iron cool down before storing it back in place.',
+                comoUsarLavadora: 'Washing Machine',
+                comoUsarLavadoraDesc: 'The washing machine is in the laundry closet, located in the kitchen area. Open the closet doors and the washing machine door to load the clothes, then open the top compartment to pour in liquid detergent. Next, press the power button and turn the center dial to select the desired wash cycle. Finally, press the start button to begin. Do not open the door until the cycle finishes. A melody will signal the end of the wash.',
+                comoUsarSecadora: 'Dryer',
+                comoUsarSecadoraDesc: 'The washing machine has a drying mode. To use it, place only the items you want to dry, close the door, and select the appropriate drying cycle for the fabric type. Then press the start button. Please note that the drying time on this machine is significantly longer than a conventional dryer, as it is a washer with a drying function, not a standalone dryer.',
+                comoUsarTendedero: 'Drying Rack',
+                comoUsarTendederoDesc: 'To dry towels and clothes, there is a drying rack on the balcony. Unfold it and hang the items to air dry.',
+                comoUsarAspiradora: 'Vacuum Cleaner',
+                comoUsarAspiradoraDesc: 'The vacuum cleaner is in the laundry closet, located in the kitchen area. Open the closet doors and take it out for use. We recommend watching the video before using it to familiarize yourself with its operation. For longer cleaning sessions, set the speed to "MID" for better performance and extended battery life.',
+                comoUsarBasura: 'Trash',
+                comoUsarBasuraDesc: 'Trash must be placed in tightly sealed bags and deposited in the trash room located on the ground floor (PB). Please do not leave bags outside the container.',
+                
+                // Downloads Section
+                descargasTitle: 'Manuals and Downloads',
+                descargasSubtitle: 'Useful documents you can download for reference when needed.',
+                descargasLavadora: 'Washing Machine Manual',
+                descargasLavadoraDesc: 'PDF · Complete usage instructions',
+                descargasAspiradora: 'Vacuum Cleaner Manual',
+                descargasAspiradoraDesc: 'PDF · Usage and maintenance instructions',
+                
+                // Sites Section
+                sitiosTitle: 'Places of Interest',
+                sitiosSubtitle: 'Explore the area. Here is a map with the best places to visit.',
+                sitiosQuestion: 'What will you find in the area?',
+                sitiosDesc: 'Around Living73 15D you will find everything: pharmacies, restaurants with excellent local food, supermarkets and grocery stores for your daily shopping, parks for walking and exercising, and much more. Use the map to discover all that the area has to offer.',
+                
+                // Contacts Section
+                contactosTitle: 'Emergency Contacts',
+                contactosSubtitle: 'Save these numbers. We hope you won\'t need them, but it\'s good to have them handy.',
+                contactosBomberos: 'Fire Department',
+                contactosBomberosDesc: 'Fire, gas, or rescue emergencies. Direct line: 103.',
+                contactosPolicia: 'National Police',
+                contactosPoliciaDesc: 'Police emergencies or reports. Direct line: 104.',
+                contactos911: '911 Emergencies',
+                contactos911Desc: 'General emergencies, ambulance, police.',
+                contactosCiudadana: 'Citizen Services',
+                contactosCiudadanaDesc: 'Public services, city hall, complaints.',
+                contactosAmbulancia: 'Private Ambulance',
+                contactosAmbulanciaDesc: '7am to 11pm: <strong>374-0000</strong><br>11pm to 7am: <strong>6259-8406</strong>',
+                contactosAnfitrion: 'Your Host',
+                contactosAnfitrionDesc: 'Questions or need something? Message me.',
+                
+                // Footer
+                footerTitle: 'Need something else?',
+                footerDesc: 'Don\'t hesitate to message me on WhatsApp if you have any questions or need help with anything. Enjoy your stay at Living73 15D!'
+            }
+        };
+
+        // Language switching function
+        function setLanguage(lang) {
+            const t = translations[lang];
+            
+            // Navigation
+            document.querySelector('a[href="#reglas"]').textContent = t.navReglas;
+            document.querySelector('a[href="#como-usar"]').textContent = t.navComoUsar;
+            document.querySelector('a[href="#descargas"]').textContent = t.navDescargas;
+            document.querySelector('a[href="#sitios"]').textContent = t.navSitios;
+            document.querySelector('a[href="#contactos"]').textContent = t.navContactos;
+            
+            // Hero
+            document.querySelector('.hero-content h1').textContent = t.heroTitle;
+            document.querySelector('.hero-content p').textContent = t.heroSubtitle;
+            
+            // Rules Section
+            document.querySelector('#reglas .section-title').textContent = t.reglasTitle;
+            document.querySelector('#reglas .section-subtitle').textContent = t.reglasSubtitle;
+            document.querySelector('#reglas .rules-subsection:nth-child(1) h3').textContent = t.reglasSub1;
+            document.querySelector('#reglas .rules-subsection:nth-child(2) h3').textContent = t.reglasSub2;
+            document.querySelector('#reglas .rules-subsection:nth-child(3) h3').textContent = t.reglasSub3;
+            
+            const rulesList1 = document.querySelector('#reglas .rules-subsection:nth-child(1) .rules-list');
+            rulesList1.children[0].childNodes[rulesList1.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla1 + '\n                    ';
+            rulesList1.children[1].childNodes[rulesList1.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla2 + '\n                    ';
+            
+            const rulesList2 = document.querySelector('#reglas .rules-subsection:nth-child(2) .rules-list');
+            rulesList2.children[0].childNodes[rulesList2.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla3 + '\n                    ';
+            rulesList2.children[1].childNodes[rulesList2.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla4 + '\n                    ';
+            rulesList2.children[2].childNodes[rulesList2.children[2].childNodes.length - 1].textContent = '\n                        ' + t.regla5 + '\n                    ';
+            rulesList2.children[3].childNodes[rulesList2.children[3].childNodes.length - 1].textContent = '\n                        ' + t.regla6 + '\n                    ';
+            rulesList2.children[4].childNodes[rulesList2.children[4].childNodes.length - 1].textContent = '\n                        ' + t.regla7 + '\n                    ';
+            rulesList2.children[5].childNodes[rulesList2.children[5].childNodes.length - 1].textContent = '\n                        ' + t.regla8 + '\n                    ';
+            
+            const rulesList3 = document.querySelector('#reglas .rules-subsection:nth-child(3) .rules-list');
+            rulesList3.children[0].childNodes[rulesList3.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla9 + '\n                    ';
+            rulesList3.children[1].childNodes[rulesList3.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla10 + '\n                    ';
+            
+            // How To Section
+            document.querySelector('#como-usar .section-title').textContent = t.comoUsarTitle;
+            document.querySelector('#como-usar .section-subtitle').textContent = t.comoUsarSubtitle;
+            
+            const howtoItems = document.querySelectorAll('#como-usar .howto-item');
+            const howtoTitles = ['comoUsarAC', 'comoUsarPlancha', 'comoUsarLavadora', 'comoUsarSecadora', 'comoUsarTendedero', 'comoUsarAspiradora', 'comoUsarBasura'];
+            const howtoDescs = ['comoUsarACDesc', 'comoUsarPlanchaDesc', 'comoUsarLavadoraDesc', 'comoUsarSecadoraDesc', 'comoUsarTendederoDesc', 'comoUsarAspiradoraDesc', 'comoUsarBasuraDesc'];
+            
+            howtoItems.forEach((item, index) => {
+                if (howtoTitles[index]) {
+                    item.querySelector('h3').textContent = t[howtoTitles[index]];
+                    item.querySelector('p').textContent = t[howtoDescs[index]];
+                }
+            });
+            
+            // Downloads Section
+            document.querySelector('#descargas .section-title').textContent = t.descargasTitle;
+            document.querySelector('#descargas .section-subtitle').textContent = t.descargasSubtitle;
+            document.querySelector('#descargas .download-item:nth-child(1) h4').textContent = t.descargasLavadora;
+            document.querySelector('#descargas .download-item:nth-child(1) p').textContent = t.descargasLavadoraDesc;
+            document.querySelector('#descargas .download-item:nth-child(2) h4').textContent = t.descargasAspiradora;
+            document.querySelector('#descargas .download-item:nth-child(2) p').textContent = t.descargasAspiradoraDesc;
+            
+            // Sites Section
+            document.querySelector('#sitios .section-title').textContent = t.sitiosTitle;
+            document.querySelector('#sitios .section-subtitle').textContent = t.sitiosSubtitle;
+            document.querySelector('#sitios .map-text h3').textContent = t.sitiosQuestion;
+            document.querySelector('#sitios .map-text p').textContent = t.sitiosDesc;
+            
+            // Contacts Section
+            document.querySelector('#contactos .section-title').textContent = t.contactosTitle;
+            document.querySelector('#contactos .section-subtitle').textContent = t.contactosSubtitle;
+            
+            const contactCards = document.querySelectorAll('#contactos .contact-card');
+            const contactTitles = ['contactosBomberos', 'contactosPolicia', 'contactos911', 'contactosCiudadana', 'contactosAmbulancia', 'contactosAnfitrion'];
+            const contactDescs = ['contactosBomberosDesc', 'contactosPoliciaDesc', 'contactos911Desc', 'contactosCiudadanaDesc', 'contactosAmbulanciaDesc', 'contactosAnfitrionDesc'];
+            
+            contactCards.forEach((card, index) => {
+                if (contactTitles[index]) {
+                    card.querySelector('h3').textContent = t[contactTitles[index]];
+                    card.querySelector('p').innerHTML = t[contactDescs[index]];
+                }
+            });
+            
+            // Footer
+            document.querySelector('.footer-content h2').textContent = t.footerTitle;
+            document.querySelector('.footer-content p').textContent = t.footerDesc;
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Save preference
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        // Initialize language from localStorage or default to Spanish
+        const savedLang = localStorage.getItem('preferred-lang') || 'es';
+        setLanguage(savedLang);
+
+        // Add click handlers to language buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.dataset.lang);
+            });
         });
     </script>
 </body>
