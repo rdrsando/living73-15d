@@ -658,6 +658,24 @@
             </div>
 
             <div class="rules-subsection">
+                <h3>Acomodación</h3>
+                <ul class="rules-list">
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                        </svg>
+                        La acomodación máxima de la propiedad (pernocta) son 2 personas y todos deben estar reportados. No está permitido la pernocta de personas ajenas a las reportadas en la reserva.
+                    </li>
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                        </svg>
+                        Para el caso de las visitas pueden tener un máximo de 1-2 visitas en la propiedad, para un total de 4 personas simultáneamente (de igual manera previamente reportados).
+                    </li>
+                </ul>
+            </div>
+
+            <div class="rules-subsection">
                 <h3>Uso y Cuidado de la Propiedad</h3>
                 <ul class="rules-list">
                     <li>
@@ -1099,11 +1117,14 @@
                 reglasTitle: 'Reglas de Uso de la Unidad',
                 reglasSubtitle: 'Por favor, lee y respeta estas normas para que todos disfruten de la estadía.',
                 reglasSub1: 'Normas de Convivencia',
+                reglasSubAcomodacion: 'Acomodación',
                 reglasSub2: 'Uso y Cuidado de la Propiedad',
                 reglasSub3: 'Logística de Desechos y Seguridad',
                 regla1: 'Prohibido hacer fiestas, reuniones, encuentros familiares, eventos o celebraciones que molesten a los vecinos.',
                 regla1b: 'Prohibidas cualquier tipo de actividad ofensiva que ponga en peligro la tranquilidad de los vecinos.',
                 regla2: 'Horas de silencio: de 10:00 PM a 8:00 AM.',
+                reglaAcomodacion1: 'La acomodación máxima de la propiedad (pernocta) son 2 personas y todos deben estar reportados. No está permitido la pernocta de personas ajenas a las reportadas en la reserva.',
+                reglaAcomodacion2: 'Para el caso de las visitas pueden tener un máximo de 1-2 visitas en la propiedad, para un total de 4 personas simultáneamente (de igual manera previamente reportados).',
                 regla3: 'No se permite fumar dentro de la unidad.',
                 regla4: 'Apague los aires acondicionados al salir de la unidad.',
                 regla5: 'Extienda las toallas mojadas en el tendedero de la terraza.',
@@ -1183,11 +1204,14 @@
                 reglasTitle: 'Unit Rules',
                 reglasSubtitle: 'Please read and respect these rules so everyone can enjoy their stay.',
                 reglasSub1: 'House Rules',
+                reglasSubAcomodacion: 'Accommodation',
                 reglasSub2: 'Property Use and Care',
                 reglasSub3: 'Waste Management and Safety',
                 regla1: 'Parties, gatherings, family meetings, events, or celebrations that disturb neighbors are prohibited.',
                 regla1b: 'Any type of offensive activity that endangers the peace of neighbors is prohibited.',
                 regla2: 'Quiet hours: from 10:00 PM to 8:00 AM.',
+                reglaAcomodacion1: 'The maximum occupancy for the property (overnight stay) is 2 people and all must be reported. Overnight stay of persons not reported in the reservation is not allowed.',
+                reglaAcomodacion2: 'For visits, you may have a maximum of 1-2 visitors at the property, for a total of 4 people simultaneously (also previously reported).',
                 regla3: 'Smoking is not allowed inside the unit.',
                 regla4: 'Turn off air conditioning units when leaving the unit.',
                 regla5: 'Hang wet towels on the balcony drying rack.',
@@ -1272,15 +1296,20 @@
             document.querySelector('#reglas .section-title').textContent = t.reglasTitle;
             document.querySelector('#reglas .section-subtitle').textContent = t.reglasSubtitle;
             document.querySelector('#reglas .rules-subsection:nth-child(1) h3').textContent = t.reglasSub1;
-            document.querySelector('#reglas .rules-subsection:nth-child(2) h3').textContent = t.reglasSub2;
-            document.querySelector('#reglas .rules-subsection:nth-child(3) h3').textContent = t.reglasSub3;
+            document.querySelector('#reglas .rules-subsection:nth-child(2) h3').textContent = t.reglasSubAcomodacion;
+            document.querySelector('#reglas .rules-subsection:nth-child(3) h3').textContent = t.reglasSub2;
+            document.querySelector('#reglas .rules-subsection:nth-child(4) h3').textContent = t.reglasSub3;
             
             const rulesList1 = document.querySelector('#reglas .rules-subsection:nth-child(1) .rules-list');
             rulesList1.children[0].childNodes[rulesList1.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla1 + '\n                    ';
             rulesList1.children[1].childNodes[rulesList1.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla1b + '\n                    ';
             rulesList1.children[2].childNodes[rulesList1.children[2].childNodes.length - 1].textContent = '\n                        ' + t.regla2 + '\n                    ';
             
-            const rulesList2 = document.querySelector('#reglas .rules-subsection:nth-child(2) .rules-list');
+            const rulesListAcomodacion = document.querySelector('#reglas .rules-subsection:nth-child(2) .rules-list');
+            rulesListAcomodacion.children[0].childNodes[rulesListAcomodacion.children[0].childNodes.length - 1].textContent = '\n                        ' + t.reglaAcomodacion1 + '\n                    ';
+            rulesListAcomodacion.children[1].childNodes[rulesListAcomodacion.children[1].childNodes.length - 1].textContent = '\n                        ' + t.reglaAcomodacion2 + '\n                    ';
+            
+            const rulesList2 = document.querySelector('#reglas .rules-subsection:nth-child(3) .rules-list');
             rulesList2.children[0].childNodes[rulesList2.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla3 + '\n                    ';
             rulesList2.children[1].childNodes[rulesList2.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla4 + '\n                    ';
             rulesList2.children[2].childNodes[rulesList2.children[2].childNodes.length - 1].textContent = '\n                        ' + t.regla5 + '\n                    ';
@@ -1288,7 +1317,7 @@
             rulesList2.children[4].childNodes[rulesList2.children[4].childNodes.length - 1].textContent = '\n                        ' + t.regla7 + '\n                    ';
             rulesList2.children[5].childNodes[rulesList2.children[5].childNodes.length - 1].textContent = '\n                        ' + t.regla8 + '\n                    ';
             
-            const rulesList3 = document.querySelector('#reglas .rules-subsection:nth-child(3) .rules-list');
+            const rulesList3 = document.querySelector('#reglas .rules-subsection:nth-child(4) .rules-list');
             rulesList3.children[0].childNodes[rulesList3.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla9 + '\n                    ';
             rulesList3.children[1].childNodes[rulesList3.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla10 + '\n                    ';
             
