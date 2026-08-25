@@ -1243,24 +1243,6 @@
                 regla9: 'Deposite los desechos en bolsas dentro de los contenedores del PH, ubicados en el cuarto de basura del nivel PB.',
                 reglasSubPenalizaciones: 'Penalizaciones',
                 penalizacionesDesc: 'Los daños a la propiedad, pérdidas del toquen de acceso e incumplimiento de las reglas de la unidad, conlleva multas:',
-                penalizacion1: 'Ingresar a la unidad con una mascota',
-                penalizacion2: 'Sucio extremo más de lo habitual',
-                penalizacion3: 'Taza, vaso, plato roto o faltante',
-                penalizacion4: 'Lámpara rota',
-                penalizacion5: 'Sábanas manchadas con sangre, maquillaje o cualquier otro producto difícil de lavar',
-                penalizacion6: 'Fumar adentro de la propiedad',
-                penalizacion7: 'Late check out',
-                penalizacion8: 'Generar problemas o molestias a los vecinos o personal del edificio',
-                penalizacion9: 'Llevarse toallas',
-                penalizacion10: 'Suciedad producto de mascotas',
-                penalizacion11: 'No reportar huésped',
-                penalizacion12: 'Realizar cualquier tipo de eventos, reuniones, fiestas, encuentros familiares sin previa notificación',
-                penalizacion13: 'Llavero de acceso o toquen perdido',
-                penalizacion14: 'Cafetera o vaso de cafetera faltante o dañado',
-                penalizacion15: 'Dañar o manchar alfombra con líquidos no lavables',
-                penalizacion16: 'Dañar, quemar, rayar mueble (mesita de noche)',
-                penalizacion17: 'Dañar, quemar, rayar mueble (mesita de sala)',
-                penalizacion18: 'Inundar el apartamento producto de una negligencia del huésped',
                 
                 // How To Section
                 comoUsarTitle: 'Cómo Usar',
@@ -1349,24 +1331,6 @@
                 regla9: 'Place waste in bags inside the building containers, located in the trash room on the ground floor (PB).',
                 reglasSubPenalizaciones: 'Penalties',
                 penalizacionesDesc: 'Damage to the property, loss of access token, and violation of unit rules result in fines:',
-                penalizacion1: 'Bringing a pet into the unit',
-                penalizacion2: 'Extreme dirt beyond normal',
-                penalizacion3: 'Broken or missing cup, glass, or plate',
-                penalizacion4: 'Broken lamp',
-                penalizacion5: 'Sheets stained with blood, makeup, or any other hard-to-wash product',
-                penalizacion6: 'Smoking inside the property',
-                penalizacion7: 'Late check out',
-                penalizacion8: 'Causing problems or disturbances to neighbors or building staff',
-                penalizacion9: 'Taking towels',
-                penalizacion10: 'Dirt caused by pets',
-                penalizacion11: 'Failure to report guests',
-                penalizacion12: 'Hosting any type of events, gatherings, parties, or family meetings without prior notice',
-                penalizacion13: 'Lost access keychain or token',
-                penalizacion14: 'Missing or damaged coffee maker or coffee maker cup',
-                penalizacion15: 'Staining or damaging carpet with non-washable liquids',
-                penalizacion16: 'Damaging, burning, or scratching furniture (nightstand)',
-                penalizacion17: 'Damaging, burning, or scratching furniture (living room table)',
-                penalizacion18: 'Flooding the apartment due to guest negligence',
                 
                 // How To Section
                 comoUsarTitle: 'How to Use',
@@ -1467,16 +1431,9 @@
             const rulesList3 = document.querySelector('#reglas .rules-subsection:nth-child(4) .rules-list');
             rulesList3.children[0].childNodes[rulesList3.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla9 + '\n                    ';
             
-            // Penalizaciones section
+            // Penalizaciones section (title and description only - penalties are static in HTML)
             document.querySelector('#reglas .rules-subsection:nth-child(5) h3').textContent = t.reglasSubPenalizaciones;
             document.querySelector('#reglas .rules-subsection:nth-child(5) p').textContent = t.penalizacionesDesc;
-            const penalizacionesList = document.querySelector('#reglas .rules-subsection:nth-child(5) .rules-list');
-            const penalizacionKeys = ['penalizacion1', 'penalizacion2', 'penalizacion3', 'penalizacion4', 'penalizacion5', 'penalizacion6', 'penalizacion7', 'penalizacion8', 'penalizacion9', 'penalizacion10', 'penalizacion11', 'penalizacion12', 'penalizacion13', 'penalizacion14', 'penalizacion15', 'penalizacion16', 'penalizacion17', 'penalizacion18'];
-            penalizacionesList.querySelectorAll('li').forEach((li, index) => {
-                if (penalizacionKeys[index]) {
-                    li.childNodes[li.childNodes.length - 1].textContent = '\n                        ' + t[penalizacionKeys[index]] + '\n                    ';
-                }
-            });
             
             // How To Section
             document.querySelector('#como-usar .section-title').textContent = t.comoUsarTitle;
