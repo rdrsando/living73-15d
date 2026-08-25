@@ -718,19 +718,13 @@
             </div>
 
             <div class="rules-subsection">
-                <h3>Logística de Desechos y Seguridad</h3>
+                <h3>Logística de Desechos</h3>
                 <ul class="rules-list">
                     <li>
                         <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                         </svg>
                         Deposite los desechos en bolsas dentro de los contenedores del PH, ubicados en el cuarto de basura del nivel PB.
-                    </li>
-                    <li>
-                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        La pérdida del ping o token de acceso a las áreas comunes conlleva una multa de $50 para cubrir el reemplazo.
                     </li>
                 </ul>
             </div>
@@ -1119,7 +1113,7 @@
                 reglasSub1: 'Normas de Convivencia',
                 reglasSubAcomodacion: 'Acomodación',
                 reglasSub2: 'Uso y Cuidado de la Propiedad',
-                reglasSub3: 'Logística de Desechos y Seguridad',
+                reglasSub3: 'Logística de Desechos',
                 regla1: 'Prohibido hacer fiestas, reuniones, encuentros familiares, eventos o celebraciones que molesten a los vecinos.',
                 regla1b: 'Prohibidas cualquier tipo de actividad ofensiva que ponga en peligro la tranquilidad de los vecinos.',
                 regla2: 'Horas de silencio: de 10:00 PM a 8:00 AM.',
@@ -1132,7 +1126,6 @@
                 regla7: 'Evite dejar restos de comida sobre la encimera. Mantenga el orden y la limpieza.',
                 regla8: 'No se aceptan mascotas.',
                 regla9: 'Deposite los desechos en bolsas dentro de los contenedores del PH, ubicados en el cuarto de basura del nivel PB.',
-                regla10: 'La pérdida del ping o token de acceso a las áreas comunes conlleva una multa de $50 para cubrir el reemplazo.',
                 
                 // How To Section
                 comoUsarTitle: 'Cómo Usar',
@@ -1206,7 +1199,7 @@
                 reglasSub1: 'House Rules',
                 reglasSubAcomodacion: 'Accommodation',
                 reglasSub2: 'Property Use and Care',
-                reglasSub3: 'Waste Management and Safety',
+                reglasSub3: 'Waste Management',
                 regla1: 'Parties, gatherings, family meetings, events, or celebrations that disturb neighbors are prohibited.',
                 regla1b: 'Any type of offensive activity that endangers the peace of neighbors is prohibited.',
                 regla2: 'Quiet hours: from 10:00 PM to 8:00 AM.',
@@ -1219,7 +1212,6 @@
                 regla7: 'Avoid leaving food scraps on the counter. Keep the space clean and tidy.',
                 regla8: 'No pets allowed.',
                 regla9: 'Place waste in bags inside the building containers, located in the trash room on the ground floor (PB).',
-                regla10: 'Loss of the access ping or token to common areas incurs a $50 fine to cover replacement.',
                 
                 // How To Section
                 comoUsarTitle: 'How to Use',
@@ -1319,7 +1311,6 @@
             
             const rulesList3 = document.querySelector('#reglas .rules-subsection:nth-child(4) .rules-list');
             rulesList3.children[0].childNodes[rulesList3.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla9 + '\n                    ';
-            rulesList3.children[1].childNodes[rulesList3.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla10 + '\n                    ';
             
             // How To Section
             document.querySelector('#como-usar .section-title').textContent = t.comoUsarTitle;
