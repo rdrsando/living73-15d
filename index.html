@@ -640,7 +640,13 @@
                         <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                         </svg>
-                        Prohibido hacer fiestas o reuniones que molesten a los vecinos.
+                        Prohibido hacer fiestas, reuniones, encuentros familiares, eventos o celebraciones que molesten a los vecinos.
+                    </li>
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                        </svg>
+                        Prohibidas cualquier tipo de actividad ofensiva que ponga en peligro la tranquilidad de los vecinos.
                     </li>
                     <li>
                         <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -1095,7 +1101,8 @@
                 reglasSub1: 'Normas de Convivencia',
                 reglasSub2: 'Uso y Cuidado de la Propiedad',
                 reglasSub3: 'Logística de Desechos y Seguridad',
-                regla1: 'Prohibido hacer fiestas o reuniones que molesten a los vecinos.',
+                regla1: 'Prohibido hacer fiestas, reuniones, encuentros familiares, eventos o celebraciones que molesten a los vecinos.',
+                regla1b: 'Prohibidas cualquier tipo de actividad ofensiva que ponga en peligro la tranquilidad de los vecinos.',
                 regla2: 'Horas de silencio: de 10:00 PM a 8:00 AM.',
                 regla3: 'No se permite fumar dentro de la unidad.',
                 regla4: 'Apague los aires acondicionados al salir de la unidad.',
@@ -1178,7 +1185,8 @@
                 reglasSub1: 'House Rules',
                 reglasSub2: 'Property Use and Care',
                 reglasSub3: 'Waste Management and Safety',
-                regla1: 'Parties or gatherings that disturb neighbors are prohibited.',
+                regla1: 'Parties, gatherings, family meetings, events, or celebrations that disturb neighbors are prohibited.',
+                regla1b: 'Any type of offensive activity that endangers the peace of neighbors is prohibited.',
                 regla2: 'Quiet hours: from 10:00 PM to 8:00 AM.',
                 regla3: 'Smoking is not allowed inside the unit.',
                 regla4: 'Turn off air conditioning units when leaving the unit.',
@@ -1269,7 +1277,8 @@
             
             const rulesList1 = document.querySelector('#reglas .rules-subsection:nth-child(1) .rules-list');
             rulesList1.children[0].childNodes[rulesList1.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla1 + '\n                    ';
-            rulesList1.children[1].childNodes[rulesList1.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla2 + '\n                    ';
+            rulesList1.children[1].childNodes[rulesList1.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla1b + '\n                    ';
+            rulesList1.children[2].childNodes[rulesList1.children[2].childNodes.length - 1].textContent = '\n                        ' + t.regla2 + '\n                    ';
             
             const rulesList2 = document.querySelector('#reglas .rules-subsection:nth-child(2) .rules-list');
             rulesList2.children[0].childNodes[rulesList2.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla3 + '\n                    ';
