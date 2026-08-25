@@ -680,6 +680,12 @@
                 <ul class="rules-list">
                     <li>
                         <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Check In 3:00 PM y Check Out 11:00 AM.
+                    </li>
+                    <li>
+                        <svg class="rules-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                         </svg>
                         No se permite fumar dentro de la unidad.
@@ -1234,6 +1240,7 @@
                 regla2: 'Horas de silencio: de 10:00 PM a 8:00 AM.',
                 reglaAcomodacion1: 'La acomodación máxima de la propiedad (pernocta) son 2 personas y todos deben estar reportados. No está permitido la pernocta de personas ajenas a las reportadas en la reserva.',
                 reglaAcomodacion2: 'Para el caso de las visitas pueden tener un máximo de 1-2 visitas en la propiedad, para un total de 4 personas simultáneamente (de igual manera previamente reportados).',
+                reglaCheckin: 'Check In 3:00 PM y Check Out 11:00 AM.',
                 regla3: 'No se permite fumar dentro de la unidad.',
                 regla4: 'Apague los aires acondicionados al salir de la unidad.',
                 regla5: 'Extienda las toallas mojadas en el tendedero de la terraza.',
@@ -1322,6 +1329,7 @@
                 regla2: 'Quiet hours: from 10:00 PM to 8:00 AM.',
                 reglaAcomodacion1: 'The maximum occupancy for the property (overnight stay) is 2 people and all must be reported. Overnight stay of persons not reported in the reservation is not allowed.',
                 reglaAcomodacion2: 'For visits, you may have a maximum of 1-2 visitors at the property, for a total of 4 people simultaneously (also previously reported).',
+                reglaCheckin: 'Check In 3:00 PM and Check Out 11:00 AM.',
                 regla3: 'Smoking is not allowed inside the unit.',
                 regla4: 'Turn off air conditioning units when leaving the unit.',
                 regla5: 'Hang wet towels on the balcony drying rack.',
@@ -1421,12 +1429,13 @@
             rulesListAcomodacion.children[1].childNodes[rulesListAcomodacion.children[1].childNodes.length - 1].textContent = '\n                        ' + t.reglaAcomodacion2 + '\n                    ';
             
             const rulesList2 = document.querySelector('#reglas .rules-subsection:nth-child(3) .rules-list');
-            rulesList2.children[0].childNodes[rulesList2.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla3 + '\n                    ';
-            rulesList2.children[1].childNodes[rulesList2.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla4 + '\n                    ';
-            rulesList2.children[2].childNodes[rulesList2.children[2].childNodes.length - 1].textContent = '\n                        ' + t.regla5 + '\n                    ';
-            rulesList2.children[3].childNodes[rulesList2.children[3].childNodes.length - 1].textContent = '\n                        ' + t.regla6 + '\n                    ';
-            rulesList2.children[4].childNodes[rulesList2.children[4].childNodes.length - 1].textContent = '\n                        ' + t.regla7 + '\n                    ';
-            rulesList2.children[5].childNodes[rulesList2.children[5].childNodes.length - 1].textContent = '\n                        ' + t.regla8 + '\n                    ';
+            rulesList2.children[0].childNodes[rulesList2.children[0].childNodes.length - 1].textContent = '\n                        ' + t.reglaCheckin + '\n                    ';
+            rulesList2.children[1].childNodes[rulesList2.children[1].childNodes.length - 1].textContent = '\n                        ' + t.regla3 + '\n                    ';
+            rulesList2.children[2].childNodes[rulesList2.children[2].childNodes.length - 1].textContent = '\n                        ' + t.regla4 + '\n                    ';
+            rulesList2.children[3].childNodes[rulesList2.children[3].childNodes.length - 1].textContent = '\n                        ' + t.regla5 + '\n                    ';
+            rulesList2.children[4].childNodes[rulesList2.children[4].childNodes.length - 1].textContent = '\n                        ' + t.regla6 + '\n                    ';
+            rulesList2.children[5].childNodes[rulesList2.children[5].childNodes.length - 1].textContent = '\n                        ' + t.regla7 + '\n                    ';
+            rulesList2.children[6].childNodes[rulesList2.children[6].childNodes.length - 1].textContent = '\n                        ' + t.regla8 + '\n                    ';
             
             const rulesList3 = document.querySelector('#reglas .rules-subsection:nth-child(4) .rules-list');
             rulesList3.children[0].childNodes[rulesList3.children[0].childNodes.length - 1].textContent = '\n                        ' + t.regla9 + '\n                    ';
