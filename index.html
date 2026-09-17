@@ -202,6 +202,7 @@
             padding: 48px 24px;
             max-width: 1200px;
             margin: 0 auto;
+            scroll-margin-top: 80px;
         }
 
         .section-title {
@@ -601,6 +602,7 @@
                 <a href="#como-usar">Cómo Usar</a>
                 <a href="#descargas">Descargas</a>
                 <a href="#sitios">Sitios</a>
+                <a href="#guia-turistica">Guía</a>
                 <a href="#contactos">Contactos</a>
             </nav>
             <div class="lang-toggle">
@@ -1097,6 +1099,29 @@
         </div>
     </section>
 
+    <!-- Guía turística ProHomes -->
+    <section class="section" id="guia-turistica">
+        <h2 class="section-title">Guía turística ProHomes</h2>
+        <p class="section-subtitle">Aquí te dejamos nuestra exclusiva guía turística de ProHomes.</p>
+        
+        <div class="downloads-list">
+            <a href="https://www.airbnb.com.pa/s/guidebooks?refinement_paths%5B%5D=%2Fguidebooks%2F5223661" class="download-item" target="_blank" rel="noopener noreferrer">
+                <div class="download-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                    </svg>
+                </div>
+                <div class="download-info">
+                    <h4>Guía turística ProHomes</h4>
+                    <p>Descubre los mejores lugares, restaurantes y experiencias que Panamá tiene para ofrecerte durante tu estancia.</p>
+                </div>
+            </a>
+        </div>
+        <div style="margin-top: 16px; text-align: center;">
+            <a href="https://www.airbnb.com.pa/s/guidebooks?refinement_paths%5B%5D=%2Fguidebooks%2F5223661" class="guide-link" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 28px; background: var(--accent); color: white; border-radius: var(--radius-sm); font-weight: 600; text-decoration: none; transition: all 0.2s ease;">Ver Guía</a>
+        </div>
+    </section>
+
     <!-- Contactos de Emergencia -->
     <section class="section" id="contactos">
         <h2 class="section-title">Contactos de Emergencia</h2>
@@ -1205,23 +1230,6 @@
                     374-0000
                 </a>
             </div>
-
-            <!-- Anfitrión -->
-            <div class="contact-card">
-                <div class="contact-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                    </svg>
-                </div>
-                <h3>Tu Anfitrión</h3>
-                <p>¿Dudas o necesitas algo? Escríbeme.</p>
-                <a href="https://wa.me/34XXXXXXXXX">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                    </svg>
-                    WhatsApp
-                </a>
-            </div>
         </div>
     </section>
 
@@ -1270,6 +1278,7 @@
                 navComoUsar: 'Cómo Usar',
                 navDescargas: 'Descargas',
                 navSitios: 'Sitios',
+                navGuia: 'Guía',
                 navContactos: 'Contactos',
                 
                 // Hero
@@ -1355,8 +1364,13 @@
                 contactosCiudadanaDesc: 'Servicios públicos, alcaldía, reclamos.',
                 contactosAmbulancia: 'Ambulancia Privada',
                 contactosAmbulanciaDesc: '7am a 11pm: <strong>374-0000</strong><br>11pm a 7am: <strong>6259-8406</strong>',
-                contactosAnfitrion: 'Tu Anfitrión',
-                contactosAnfitrionDesc: '¿Dudas o necesitas algo? Escríbeme.',
+
+                // Tourist Guide
+                guiaTitle: 'Guía turística ProHomes',
+                guiaSubtitle: 'Aquí te dejamos nuestra exclusiva guía turística de ProHomes.',
+                guiaItemTitle: 'Guía turística ProHomes',
+                guiaItemDesc: 'Descubre los mejores lugares, restaurantes y experiencias que Panamá tiene para ofrecerte durante tu estancia.',
+                guiaButton: 'Ver Guía',
                 
                 // Footer
                 footerTitle: '¿Necesitas algo más?',
@@ -1368,6 +1382,7 @@
                 navComoUsar: 'How to Use',
                 navDescargas: 'Downloads',
                 navSitios: 'Sites',
+                navGuia: 'Guide',
                 navContactos: 'Contacts',
                 
                 // Hero
@@ -1453,8 +1468,13 @@
                 contactosCiudadanaDesc: 'Public services, city hall, complaints.',
                 contactosAmbulancia: 'Private Ambulance',
                 contactosAmbulanciaDesc: '7am to 11pm: <strong>374-0000</strong><br>11pm to 7am: <strong>6259-8406</strong>',
-                contactosAnfitrion: 'Your Host',
-                contactosAnfitrionDesc: 'Questions or need something? Message me.',
+                
+                // Tourist Guide
+                guiaTitle: 'ProHomes Tourist Guide',
+                guiaSubtitle: 'Here is our exclusive ProHomes tourist guide.',
+                guiaItemTitle: 'ProHomes Tourist Guide',
+                guiaItemDesc: 'Discover the best places, restaurants, and experiences that Panama has to offer during your stay.',
+                guiaButton: 'View Guide',
                 
                 // Footer
                 footerTitle: 'Need something else?',
@@ -1471,6 +1491,7 @@
             document.querySelector('a[href="#como-usar"]').textContent = t.navComoUsar;
             document.querySelector('a[href="#descargas"]').textContent = t.navDescargas;
             document.querySelector('a[href="#sitios"]').textContent = t.navSitios;
+            document.querySelector('a[href="#guia-turistica"]').textContent = t.navGuia;
             document.querySelector('a[href="#contactos"]').textContent = t.navContactos;
             
             // Hero
@@ -1549,14 +1570,21 @@
             document.querySelector('#sitios .section-subtitle').textContent = t.sitiosSubtitle;
             document.querySelector('#sitios .map-text h3').textContent = t.sitiosQuestion;
             document.querySelector('#sitios .map-text p').textContent = t.sitiosDesc;
-            
+
+            // Tourist Guide Section
+            document.querySelector('#guia-turistica .section-title').textContent = t.guiaTitle;
+            document.querySelector('#guia-turistica .section-subtitle').textContent = t.guiaSubtitle;
+            document.querySelector('#guia-turistica .download-info h4').textContent = t.guiaItemTitle;
+            document.querySelector('#guia-turistica .download-info p').textContent = t.guiaItemDesc;
+            document.querySelector('#guia-turistica .guide-link').textContent = t.guiaButton;
+
             // Contacts Section
             document.querySelector('#contactos .section-title').textContent = t.contactosTitle;
             document.querySelector('#contactos .section-subtitle').textContent = t.contactosSubtitle;
             
             const contactCards = document.querySelectorAll('#contactos .contact-card');
-            const contactTitles = ['contactosGarita', 'contactosBomberos', 'contactosPolicia', 'contactos911', 'contactosCiudadana', 'contactosAmbulancia', 'contactosAnfitrion'];
-            const contactDescs = ['contactosGaritaDesc', 'contactosBomberosDesc', 'contactosPoliciaDesc', 'contactos911Desc', 'contactosCiudadanaDesc', 'contactosAmbulanciaDesc', 'contactosAnfitrionDesc'];
+            const contactTitles = ['contactosGarita', 'contactosBomberos', 'contactosPolicia', 'contactos911', 'contactosCiudadana', 'contactosAmbulancia'];
+            const contactDescs = ['contactosGaritaDesc', 'contactosBomberosDesc', 'contactosPoliciaDesc', 'contactos911Desc', 'contactosCiudadanaDesc', 'contactosAmbulanciaDesc'];
             
             contactCards.forEach((card, index) => {
                 if (contactTitles[index]) {
