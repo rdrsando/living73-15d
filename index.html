@@ -213,6 +213,15 @@
             letter-spacing: -0.02em;
         }
 
+        .title-logo {
+            height: 1.45em;
+            width: auto;
+            vertical-align: middle;
+            margin-left: 0.18em;
+            position: relative;
+            top: -0.04em;
+        }
+
         .section-subtitle {
             font-size: 16px;
             color: var(--text-secondary);
@@ -1101,7 +1110,7 @@
 
     <!-- Guía turística ProHomes -->
     <section class="section" id="guia-turistica">
-        <h2 class="section-title">Guía turística ProHomes</h2>
+        <h2 class="section-title"><span id="guia-title-text">Guía turística</span><img src="img/logo_prohomes.svg" alt="ProHomes" class="title-logo"></h2>
         <p class="section-subtitle">Aquí te dejamos nuestra exclusiva guía turística de ProHomes.</p>
         
         <div class="downloads-list">
@@ -1386,7 +1395,7 @@
                 contactosAmbulanciaDesc: '7am a 11pm: <strong>374-0000</strong><br>11pm a 7am: <strong>6259-8406</strong>',
 
                 // Tourist Guide
-                guiaTitle: 'Guía turística ProHomes',
+                guiaTitle: 'Guía turística',
                 guiaSubtitle: 'Aquí te dejamos nuestra exclusiva guía turística de ProHomes.',
                 guiaItemTitle: 'Guía turística ProHomes',
                 guiaItemDesc: 'Descubre los mejores lugares, restaurantes y experiencias que Panamá tiene para ofrecerte durante tu estancia.',
@@ -1510,7 +1519,7 @@
                 contactosAmbulanciaDesc: '7am to 11pm: <strong>374-0000</strong><br>11pm to 7am: <strong>6259-8406</strong>',
                 
                 // Tourist Guide
-                guiaTitle: 'ProHomes Tourist Guide',
+                guiaTitle: 'Tourist Guide',
                 guiaSubtitle: 'Here is our exclusive ProHomes tourist guide.',
                 guiaItemTitle: 'ProHomes Tourist Guide',
                 guiaItemDesc: 'Discover the best places, restaurants, and experiences that Panama has to offer during your stay.',
@@ -1619,7 +1628,7 @@
             document.querySelector('#sitios .map-text p').textContent = t.sitiosDesc;
 
             // Tourist Guide Section
-            document.querySelector('#guia-turistica .section-title').textContent = t.guiaTitle;
+            document.querySelector('#guia-turistica #guia-title-text').textContent = t.guiaTitle;
             document.querySelector('#guia-turistica .section-subtitle').textContent = t.guiaSubtitle;
             document.querySelector('#guia-turistica .download-info h4').textContent = t.guiaItemTitle;
             document.querySelector('#guia-turistica .download-info p').textContent = t.guiaItemDesc;
