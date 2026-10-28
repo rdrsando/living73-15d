@@ -1308,6 +1308,26 @@
                 verVideo: 'Ver Video',
                 reglasSubPenalizaciones: 'Penalizaciones',
                 penalizacionesDesc: 'Los daños a la propiedad, pérdidas del toquen de acceso e incumplimiento de las reglas de la unidad, conlleva multas:',
+                penalizaciones: [
+                    'Ingresar a la unidad con una mascota = <strong>$100.00</strong>',
+                    'Sucio extremo más de lo habitual = <strong>$50.00</strong>',
+                    'Taza, vaso, plato roto o faltante = <strong>$10.00</strong>',
+                    'Lámpara rota = <strong>$150.00</strong>',
+                    'Sábanas manchadas con sangre, maquillaje o cualquier otro producto difícil de lavar = <strong>$50.00</strong>',
+                    'Fumar adentro de la propiedad = <strong>$100.00</strong>',
+                    'Late check out = <strong>$100.00</strong>',
+                    'Generar problemas o molestias a los vecinos o personal del edificio = <strong>$250.00</strong>',
+                    'Llevarse toallas = <strong>$20.00</strong>',
+                    'Suciedad producto de mascotas = <strong>$50.00</strong>',
+                    'No reportar huésped = <strong>$150.00</strong>',
+                    'Realizar cualquier tipo de eventos, reuniones, fiestas, encuentros familiares sin previa notificación = <strong>$500.00</strong>',
+                    'Llavero de acceso o toquen perdido = <strong>$50.00</strong>',
+                    'Cafetera o vaso de cafetera faltante o dañado = <strong>$50.00</strong>',
+                    'Dañar o manchar alfombra con líquidos no lavables = <strong>$150.00</strong>',
+                    'Dañar, quemar, rayar mueble (mesita de noche) = <strong>$150.00</strong>',
+                    'Dañar, quemar, rayar mueble (mesita de sala) = <strong>$150.00</strong>',
+                    'Inundar el apartamento producto de una negligencia del huésped = <strong>$500.00</strong>'
+                ],
                 
                 // How To Section
                 comoUsarTitle: 'Cómo Usar',
@@ -1412,6 +1432,26 @@
                 verVideo: 'Watch Video',
                 reglasSubPenalizaciones: 'Penalties',
                 penalizacionesDesc: 'Damage to the property, loss of access token, and violation of unit rules result in fines:',
+                penalizaciones: [
+                    'Bringing a pet into the unit = <strong>$100.00</strong>',
+                    'Extreme dirt beyond usual = <strong>$50.00</strong>',
+                    'Broken or missing cup, glass, or plate = <strong>$10.00</strong>',
+                    'Broken lamp = <strong>$150.00</strong>',
+                    'Sheets stained with blood, makeup, or any other hard-to-wash product = <strong>$50.00</strong>',
+                    'Smoking inside the property = <strong>$100.00</strong>',
+                    'Late check out = <strong>$100.00</strong>',
+                    'Causing problems or disturbances to neighbors or building staff = <strong>$250.00</strong>',
+                    'Taking towels = <strong>$20.00</strong>',
+                    'Dirt caused by pets = <strong>$50.00</strong>',
+                    'Not reporting a guest = <strong>$150.00</strong>',
+                    'Holding any type of events, meetings, parties, or family gatherings without prior notice = <strong>$500.00</strong>',
+                    'Lost access key or token = <strong>$50.00</strong>',
+                    'Missing or damaged coffee maker or coffee maker cup = <strong>$50.00</strong>',
+                    'Damaging or staining carpet with non-washable liquids = <strong>$150.00</strong>',
+                    'Damaging, burning, or scratching furniture (nightstand) = <strong>$150.00</strong>',
+                    'Damaging, burning, or scratching furniture (living room table) = <strong>$150.00</strong>',
+                    'Flooding the apartment due to guest negligence = <strong>$500.00</strong>'
+                ],
                 
                 // How To Section
                 comoUsarTitle: 'How to Use',
@@ -1530,9 +1570,16 @@
             basuraLi.childNodes[4].textContent = '\n                    ';
             basuraLi.querySelector('a[href="#basura-video"]').textContent = t.verVideo;
             
-            // Penalizaciones section (title and description only - penalties are static in HTML)
+            // Penalizaciones section
             document.querySelector('#reglas .rules-subsection:nth-child(5) h3').textContent = t.reglasSubPenalizaciones;
             document.querySelector('#reglas .rules-subsection:nth-child(5) p').textContent = t.penalizacionesDesc;
+            const penaltyItems = document.querySelectorAll('#reglas .rules-subsection:nth-child(5) .rules-list li');
+            penaltyItems.forEach((li, index) => {
+                if (t.penalizaciones && t.penalizaciones[index]) {
+                    const svg = li.querySelector('svg').outerHTML;
+                    li.innerHTML = '\n                        ' + svg + '\n                        ' + t.penalizaciones[index] + '\n                    ';
+                }
+            });
             
             // How To Section
             document.querySelector('#como-usar .section-title').textContent = t.comoUsarTitle;
